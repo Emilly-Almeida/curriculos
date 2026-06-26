@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block titulo %}{{ curriculo.nome }}{% endblock %}
+
+{% block conteudo %}
+<h1><span class="badge">TELA 3</span> Detalhes do Currículo</h1>
+
+<div class="card">
+  <div class="detail-grid">
+
+    <div>
+      <div class="field-label">Nome</div>
+      {# auto-escape do Jinja2 garante que qualquer HTML inserido via XSS seja neutralizado #}
+      <div class="field-value" style="font-size:1.2rem;font-weight:600;">{{ curriculo.nome }}</div>
+    </div>
+
+    <div>
+      <div class="field-label">E-mail</div>
+      <div class="field-value mono">
+        <!--
+          O href usa mailto: com o valor escapado pelo Jinja2.
+          Um atacante não consegue injetar javascript: ou data: aqui
+          porque o auto-escape converte os caracteres especiais.
+        -->
+        <a href="mailto:{{ curriculo.email | e }}">{{ curriculo.email }}</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="field-label">Telefone</div>
+      <div class="field-value">
+        {% if curriculo.telefone %}
+          <span class="pill">📞 {{ curriculo.telefone }}</span>
+        {% else %}
+          <span style="color:var(--muted);font-style:italic;">Não informado</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div>
+      <div class="field-label">Endereço WEB</div>
+      <div class="field-value">
+        {% if curriculo.site %}
+          <!--
+            rel="noopener noreferrer": impede que a página aberta acesse
+            window.opener e vazamento de Referrer — proteção extra contra
+            ataques via abas abertas (tab-napping).
+          -->
+          <a href="{{ curriculo.site | e }}" target="_blank" rel="noopener noreferrer">
+            {{ curriculo.site }}
+          </a>
+        {% else %}
+          <span style="color:var(--muted);font-style:italic;">Não informado</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div>
+      <div class="field-label">Experiência Profissional</div>
+      {# pre-wrap para respeitar quebras de linha, mas sem renderizar HTML #}
+      <div class="field-value pre">{{ curriculo.experiencia }}</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="actions">
+  <a href="{{ url_for('listar') }}" class="btn btn-ghost">← Voltar à lista</a>
+</div>
+{% endblock %}
