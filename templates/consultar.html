@@ -2,7 +2,7 @@
 {% block titulo %}{{ curriculo.nome }}{% endblock %}
 
 {% block conteudo %}
-<h1><span class="badge">TELA 3</span> Detalhes do Currículo</h1>
+<h1><span class="badge">TELA 3</span>Detalhes do Currículo</h1>
 
 <div class="card">
   <div class="detail-grid">
@@ -29,7 +29,7 @@
       <div class="field-label">Telefone</div>
       <div class="field-value">
         {% if curriculo.telefone %}
-          <span class="pill">📞 {{ curriculo.telefone }}</span>
+          <span class="pill"> {{ curriculo.telefone }}</span>
         {% else %}
           <span style="color:var(--muted);font-style:italic;">Não informado</span>
         {% endif %}

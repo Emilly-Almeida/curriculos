@@ -1,5 +1,5 @@
 """
-Sistema de Cadastro de Currículos
+Sistema de Cadastro de Currículo s
 Segurança: SQL Injection, XSS, Cross-site History Manipulation
 """
 

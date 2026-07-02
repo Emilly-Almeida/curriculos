@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- X-UA-Compatible reduz superfície de ataque em IE legado -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% block titulo %}Currículos{% endblock %} — CurriculoApp</title>
+  <title>{% block titulo %}Currículos{% endblock %} — Connect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0f1117;
-      --surface:   #1a1d27;
-      --border:    #2d3148;
-      --accent:    #6c63ff;
-      --accent2:   #a78bfa;
-      --text:      #e2e4f0;
-      --muted:     #8b8fa8;
+      --bg:        #fff1f7;
+      --surface:   #f7b3cb;
+      --border:    #f385b5;
+      --accent:    #e65681;
+      --accent2:   #ca4b86;
+      --text:      #312225;
+      --muted:     #6d525f;
       --danger:    #f87171;
       --success:   #34d399;
       --radius:    10px;
@@ -171,7 +171,7 @@
     }
     tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
     tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: rgba(108,99,255,.06); }
+    tbody tr:hover { background: rgba(255, 99, 203, 0.06); }
     tbody td { padding: .9rem 1rem; }
     .empty { text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: .9rem; }
 
@@ -196,9 +196,9 @@
       border-radius: 20px;
       font-size: .78rem;
       font-weight: 500;
-      background: rgba(108,99,255,.15);
+      background: rgba(255, 88, 213, 0.15);
       color: var(--accent2);
-      border: 1px solid rgba(108,99,255,.3);
+      border: 1px solid rgba(255, 99, 247, 0.3);
     }
 
     /* ── Actions row ── */
@@ -212,7 +212,7 @@
 </head>
 <body>
   <nav>
-    <a href="{{ url_for('listar') }}" class="nav-brand"><span>//</span> CurriculoApp</a>
+    <a href="{{ url_for('listar') }}" class="nav-brand"><span>˚˖𓍢ִ໋❀</span> Connect</a>
     <a href="{{ url_for('listar') }}" class="{% if request.endpoint == 'listar' %}active{% endif %}">Currículos</a>
     <a href="{{ url_for('cadastrar') }}" class="{% if request.endpoint == 'cadastrar' %}active{% endif %}">Novo Cadastro</a>
   </nav>

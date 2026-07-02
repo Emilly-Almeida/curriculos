@@ -2,7 +2,7 @@
 {% block titulo %}Novo Cadastro{% endblock %}
 
 {% block conteudo %}
-<h1><span class="badge">TELA 2</span> Novo Currículo</h1>
+<h1><span class="badge">TELA 2</span>Novo Currículo</h1>
 
 {% if erros %}
 <div class="alert-error">
@@ -34,7 +34,7 @@
         type="text"
         id="nome"
         name="nome"
-        placeholder="Ex.: Maria da Silva"
+        placeholder="Ex.: Emilly Almeida"
         maxlength="200"
         required
         autocomplete="name"
@@ -48,7 +48,7 @@
         type="email"
         id="email"
         name="email"
-        placeholder="Ex.: maria@email.com"
+        placeholder="Ex.: emi@email.com"
         maxlength="200"
         required
         autocomplete="email"
@@ -62,7 +62,7 @@
         type="tel"
         id="telefone"
         name="telefone"
-        placeholder="Ex.: (51) 91234-5678"
+        placeholder="Ex.: (67) 8999-8212"
         maxlength="30"
         autocomplete="tel"
         value="{{ request.form.get('telefone', '') | e }}"
@@ -75,7 +75,7 @@
         type="url"
         id="site"
         name="site"
-        placeholder="Ex.: https://linkedin.com/in/maria"
+        placeholder="Ex.: https://linkedin.com/in/emi"
         maxlength="300"
         autocomplete="url"
         value="{{ request.form.get('site', '') | e }}"
@@ -100,11 +100,4 @@
   </form>
 </div>
 
-<!-- Notas de segurança visíveis para avaliação -->
-<div style="margin-top:2rem;padding:1.25rem;border-radius:var(--radius);border:1px dashed var(--border);font-size:.8rem;color:var(--muted);line-height:1.8;">
-  <strong style="color:var(--accent2);display:block;margin-bottom:.5rem;">🔒 Proteções ativas neste formulário</strong>
-  <strong>SQL Injection:</strong> Inserção via parâmetros (<code>?</code>) preparados pelo SQLite — entrada do usuário nunca concatenada à query.<br>
-  <strong>XSS:</strong> Jinja2 auto-escapa toda saída; função <code>sanitizar()</code> aplica <code>html.escape()</code> antes de persistir; CSP bloqueia scripts inline.<br>
-  <strong>CSRF / History Manipulation:</strong> Formulário usa POST (não GET); token CSRF único por sessão validado no servidor; cabeçalhos <code>Cache-Control: no-store</code> impedem que o browser armazene páginas com dados sensíveis no histórico.
-</div>
 {% endblock %}

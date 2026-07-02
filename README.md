@@ -60,10 +60,10 @@ atacante altere a lógica da query (ex.: `' OR '1'='1`).
 sqlite3. A entrada do usuário **nunca** é concatenada à string SQL.
 
 ```python
-# ✅ SEGURO — parâmetro parametrizado
+# SEGURO — parâmetro parametrizado
 db.execute("SELECT * FROM curriculos WHERE id = ?", (curriculo_id,))
 
-# ❌ INSEGURO — não usado no projeto
+# INSEGURO — não usado no projeto
 db.execute(f"SELECT * FROM curriculos WHERE id = {curriculo_id}")
 ```
 
